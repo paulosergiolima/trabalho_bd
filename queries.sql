@@ -10,7 +10,15 @@ SELECT empresas.nome,AVG(preco) from empresas INNER JOIN produtos ON empresas.em
 SELECT empresas.nome, AVG(opiniao) from empresas INNER JOIN produtos ON empresas.empresa_id = produtos.empresa_id INNER JOIN resposta ON resposta.produto = produtos.produto_id WHERE empresas.nome = "BookBarn" GROUP BY empresas.empresa_id;
 
 --Pegar produtos maiores que x preco
-SELECT * FROM produtos WHERE produtos.preco > x
+SELECT * FROM produtos WHERE produtos.preco > x;
 
 --Pegar produtos menores que x preco
-SELECT * FROM produtos WHERE produtos.preco < x
+SELECT * FROM produtos WHERE produtos.preco < x;
+
+--Pegar produtos de empresa x
+SELECT * FROM produtos INNER JOIN empresas ON produtos.empresa_id = empresas.empresa_id WHERE empresas.nome = "x";
+
+--Pegar respostas de produto x
+SELECT * FROM resposta INNER JOIN produtos on resposta.produto = produtos.produto_id WHERE produtos.nome = "x";
+
+--Pegar melhor opinião de produto x
