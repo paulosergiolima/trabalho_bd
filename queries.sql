@@ -21,4 +21,11 @@ SELECT * FROM produtos INNER JOIN empresas ON produtos.empresa_id = empresas.emp
 --Pegar respostas de produto x
 SELECT * FROM resposta INNER JOIN produtos on resposta.produto = produtos.produto_id WHERE produtos.nome = "x";
 
---Pegar melhor opinião de produto x
+--Pegar produto com menor preço de empresa x
+SELECT * FROM produtos INNER JOIN empresas ON produtos.empresa_id = empresas.empresa_id WHERE empresas.nome = "SnackCo" ORDER BY produtos.preco LIMIT 1;
+
+--Pegar resposta com melhor opinião para produto x
+SELECT * FROM resposta INNER JOIN produtos ON produtos.produto_id = resposta.produto WHERE produtos.nome = "Tablet" ORDER BY opiniao DESC LIMIT 1;
+
+--Lista de todos os produtos de uma empresa X
+SELECT * FROM produtos INNER JOIN empresas ON produtos.empresa_id = empresas.empresa_id WHERE empresas.nome = "SnackCo";
